@@ -8,7 +8,6 @@ export const BooksProvider = ({ children }: LayoutProps): ReactElement => {
   const [booksData, setBooksData] = useState<BookDataProps[]>([]);
 
   const handleGetBooks = async (searchTerm: string, maxResults = 15) => {
-    console.log('handleGetBooks-entrou',searchTerm)
     const { data } = await api.get(`${searchTerm}&maxResults=${maxResults}`);
     const books = data.items;
 

@@ -29,7 +29,6 @@ const Home = (): ReactElement => {
     const navigation = useNavigation()
 
     const handleGetBooks = async (searchTerm: string, maxResults = 15) => {
-        console.log('handleGetBooks-entrou', searchTerm)
         const { data } = await api.get(`${searchTerm}&maxResults=${maxResults}`);
         const books = data.items;
 
@@ -42,10 +41,8 @@ const Home = (): ReactElement => {
 
     useEffect(() => {
         if (category.title != "") {
-            console.log('category', category.title, maxResults);
             handleGetBooks(category.title, maxResults);
         }
-        console.log('books', booksData);
         setShowPicker('')
     }, [category, maxResults]);
 
