@@ -3,7 +3,7 @@ import { BookDataProps, BooksContextProps, LayoutProps } from '../types';
 import api from '../services/api';
 
 export const BooksContext = createContext<BooksContextProps>({} as BooksContextProps);
-
+//Provider criado para testar o uso de context
 export const BooksProvider = ({ children }: LayoutProps): ReactElement => {
   const [booksData, setBooksData] = useState<BookDataProps[]>([]);
 

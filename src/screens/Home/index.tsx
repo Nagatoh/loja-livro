@@ -1,4 +1,4 @@
-import React, { ReactElement, useContext, useEffect, useState } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 import { Text, View, StyleSheet, ScrollView, Image, TouchableOpacity, Alert, Button } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
@@ -8,10 +8,8 @@ import api from '../../services/api';
 
 import Shoes from '../../components/Book'
 import PickerModal from '../../components/PickerModal';
-import { StackNavigationProp } from '@react-navigation/stack';
 import { BookDataProps, SubjectProps } from '../../types';
 
-import { BooksContext } from '../../context/booksContext';
 import { FlatList } from 'react-native-gesture-handler';
 import LoadMoreButton from '../../components/LoadMoreButton';
 
@@ -27,14 +25,8 @@ const Home = (): ReactElement => {
     const [showPicker, setShowPicker] = useState<string>('');
     const [category, setCategory] = useState<SubjectProps>({ id: 20, title: 'Economy' });
     const [booksData, setBooksData] = useState<BookDataProps[]>([]);
-    //const { booksData, handleGetBooks } = useContext(BooksContext);
 
-    const navigation = useNavigation();
-
-    // const handleLoadMore = () => {
-    //     setMaxResults(prevState => prevState + 5);
-    // };
-
+    const navigation = useNavigation()
 
     const handleGetBooks = async (searchTerm: string, maxResults = 15) => {
         console.log('handleGetBooks-entrou', searchTerm)

@@ -4,22 +4,12 @@ import React, { ReactElement, useEffect, useState } from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 
-import Dot from '../../components/Dot';
 import api from '../../services/api';
 import { BookDataProps, IParams } from '../../types';
 
-// import { Container } from './styles';
-
-interface DetailProps {
-    navigation: number
-    item: any
-}
-
 const Detail = ({ navigation }: { navigation: any }) => {
     const [bookData, setBookData] = useState<BookDataProps>();
-    let url = 'http://books.google.com/books/publisher/content?id=ZNGNCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE71YK4guFEqCuuIFrJCMwhhs9oysmsjEiaVJhVHoJ-yLhNM8S9VkeJ0DBO9FHI8MS_XUsNt-Hz4ce9pTBm3Nu8soMQB3BD0U16mPp0voOh5ujT-61tgdOyB6C9BQkKCj0OSLLL-2&source=gbs_api';
     const { params } = useRoute<RouteProp<IParams, 'Details'>>();
-
 
     const handleBookData = async () => {
         const { data } = await api.get(
